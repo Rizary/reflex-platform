@@ -9,6 +9,11 @@ with haskellPackages;
   reflex
   reflex-dom
   reflex-todomvc
+  #Craft3e
+  HaXml
+  OpenGL
+  
+  
 
 ] ++ (if platform == "ghcjs" then [
   ##############################################################################
@@ -20,4 +25,18 @@ with haskellPackages;
   # Add ghc-only packages here                                                 #
   ##############################################################################
 
+  snap
+  snap-core
+  snap-server
+  snap-web-routes
+  snaplet-postgresql-simple
+  hakyll
+  #opengl
+  sdl2
+  hxt
+  xml
+  gtk3
+  #Craft3e
+  
+  
 ] else []) ++ builtins.concatLists (map (x: x.override { mkDerivation = drv: drv.buildDepends; }) [ reflex reflex-dom reflex-todomvc ])
